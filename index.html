@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store — Windows 8 Web</title>
+  <link rel="stylesheet" href="css/store.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="store-logo">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="0" y="0" width="10" height="10" fill="#f35325"/>
+          <rect x="12" y="0" width="10" height="10" fill="#81bc06"/>
+          <rect x="0" y="12" width="10" height="10" fill="#05a6f0"/>
+          <rect x="12" y="12" width="10" height="10" fill="#ffba08"/>
+        </svg>
+      </span>
+      <span class="store-title">Store</span>
+    </div>
+    <div class="topbar-center">
+      <div class="search-bar">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search apps..." />
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn" id="installedBtn" title="Installed Apps">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <span>Library</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CATEGORY NAV -->
+  <nav class="category-nav" id="categoryNav">
+    <button class="cat-btn active" data-cat="all">All</button>
+    <button class="cat-btn" data-cat="productivity">Productivity</button>
+    <button class="cat-btn" data-cat="entertainment">Entertainment</button>
+    <button class="cat-btn" data-cat="tools">Tools</button>
+    <button class="cat-btn" data-cat="games">Games</button>
+    <button class="cat-btn" data-cat="social">Social</button>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <section class="hero-banner" id="heroBanner">
+    <div class="hero-content">
+      <div class="hero-badge">FEATURED</div>
+      <h1 class="hero-title" id="heroTitle">Calculator Pro</h1>
+      <p class="hero-desc" id="heroDesc">The most powerful calculator app for Windows 8 Web. Scientific, graphing & more.</p>
+      <button class="hero-install-btn" id="heroInstallBtn">Get</button>
+    </div>
+    <div class="hero-icon-wrap">
+      <div class="hero-icon" id="heroIcon">🧮</div>
+    </div>
+    <div class="hero-dots">
+      <span class="dot active" data-i="0"></span>
+      <span class="dot" data-i="1"></span>
+      <span class="dot" data-i="2"></span>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="store-main" id="storeMain">
+
+    <!-- FEATURED ROW -->
+    <section class="app-section" id="featuredSection">
+      <h2 class="section-title">Featured Apps</h2>
+      <div class="app-grid featured-grid" id="featuredGrid"></div>
+    </section>
+
+    <!-- TOP FREE -->
+    <section class="app-section" id="topFreeSection">
+      <h2 class="section-title">Top Free</h2>
+      <div class="app-list" id="topFreeList"></div>
+    </section>
+
+    <!-- ALL APPS -->
+    <section class="app-section" id="allAppsSection">
+      <h2 class="section-title">All Apps</h2>
+      <div class="app-grid" id="allAppsGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- LIBRARY PANEL -->
+  <aside class="library-panel" id="libraryPanel">
+    <div class="library-header">
+      <h2>My Library</h2>
+      <button class="close-panel" id="closeLibrary">✕</button>
+    </div>
+    <div class="library-list" id="libraryList">
+      <p class="empty-library">No apps installed yet.</p>
+    </div>
+  </aside>
+
+  <!-- APP DETAIL MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="app-modal" id="appModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-body">
+        <div class="modal-left">
+          <div class="modal-icon" id="modalIcon"></div>
+          <div class="modal-meta">
+            <span class="modal-rating" id="modalRating"></span>
+            <span class="modal-size" id="modalSize"></span>
+            <span class="modal-version" id="modalVersion"></span>
+          </div>
+        </div>
+        <div class="modal-right">
+          <div class="modal-cat-badge" id="modalCat"></div>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-publisher" id="modalPublisher"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-screenshots" id="modalScreenshots"></div>
+          <div class="modal-actions">
+            <button class="install-btn" id="modalInstallBtn">Install</button>
+            <span class="modal-price" id="modalPrice"></span>
+          </div>
+          <div class="modal-tags" id="modalTags"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/apps-data.js"></script>
+  <script src="js/store.js"></script>
+</body>
+</html>
